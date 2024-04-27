@@ -26,4 +26,7 @@ For the data analysis phase, I focused on understanding key performance indicato
 
 **​What I Learned:**
 
+1.  Based on the top 5, first 3 Pizzas were - Chicken, followed by Classic and Supreme for the year of 2015.
+2.  Total number of Pizzas sold were mostly on Sundays.
+3.  On hourly basis it could be most number of orders of pizza happens during hours 12:00 to 13:00 hr, which is mostly the lunch time, and the next highest is seen after          office hours or mainly evening from 17:00 to 19:00 hrs
 ​
