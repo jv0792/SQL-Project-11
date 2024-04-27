@@ -1,5 +1,5 @@
 # SQL-Project-11
-### *SQL Project - Pizza Data Analysis*
+### *SQL Project - Pizza Sales Data Analysis*
 
 **Overview:**
 Pizza is a popular choice for meals, especially after a long week of work. This interest prompted me to explore the most in-demand or popular pizzas. This SQL project demonstrates my data analysis skills using Microsoft SQL Server to analyze pizza order data and identify trends in pizza preferences.
