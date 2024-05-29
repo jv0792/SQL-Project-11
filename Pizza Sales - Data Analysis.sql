@@ -96,3 +96,34 @@ join pizza_orders AS po
 ON pi.pizza_id = po.pizza_id
 GROUP BY pizza_name ORDER BY [Total Number of Sold Pizzas] ASC;
 
+
+--Use of Window Functions - 
+use pizzadb;
+--Using of Window functions
+SELECT *,
+	ROUND(SUM(total_price) OVER(PARTITION BY order_id order by order_id ASC), 2) AS TotalRollingSum,
+	ROUND(SUM(total_price) OVER(), 2) As Total
+FROM pizza_orders;
+
+SELECT order_id, 
+	order_time,
+	ROUND(SUM(total_price) OVER(PARTITION BY order_time order by order_time ASC), 2) AS TotalRollingSum,
+	ROUND(SUM(total_price) OVER(), 2) As Total
+FROM pizza_orders
+ORDER BY TotalRollingSum ASC;
+
+
+
+SELECT * FROM pizza_orders;
+
+SELECT pi.pizza_name, 
+ROUND(po.total_price, 2) AS SinglePrice,
+ROUND(SUM(po.total_price) OVER(), 2) AS Tots,
+ROUND(SUM(po.total_price) OVER(PARTITION BY pi.pizza_name), 2) AS RollingTotals,
+RANK() OVER(PARTITION BY pi.pizza_name ORDER BY po.total_price DESC) AS rnk,
+DENSE_RANK() OVER(PARTITION BY pi.pizza_name ORDER BY po.total_price DESC) AS densernk
+FROM pizza_info pi
+JOIN pizza_orders po
+ON pi.pizza_id = po.pizza_id
+ORDER BY RollingTotals ASC;
+
